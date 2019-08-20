@@ -1,0 +1,157 @@
+package com.coreJava;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+public class Tax1 {
+
+	int grup1 = 0, grup2 = 0, grup3 = 0, grup4 = 0, grup5 = 0;
+	private static DecimalFormat df2 = new DecimalFormat("#.##");
+
+	public static void main(String[] args) {
+		System.out.println("Example for N=\t" );
+		Scanner in = new Scanner(System.in);
+		int employees = in.nextInt();
+		double highTaxValue = 0;
+		boolean lowvalue = false;
+		double lowestTaxValue = 0;
+
+		Tax1 tax1 = new Tax1();
+
+		for (int i = 1; i < employees; i++) {
+
+			System.out.println("Enter the taxable income for employee " + i + ":\t");
+
+			double emp = in.nextDouble();
+
+			emp = tax1.taxcalculation(emp);
+
+			System.out
+					.println("The income tax for employee " + i + " is $"+df2.format(emp));
+			System.out.println("\n");
+			if (emp > highTaxValue) {
+				highTaxValue = emp;
+			}
+			if (lowvalue && emp < lowestTaxValue) {
+				lowestTaxValue = emp;
+			} else {
+				lowvalue = true;
+				emp = lowestTaxValue;
+			}
+
+		}
+		
+		System.out.println("Highest Tax: $" + df2.format(highTaxValue));
+		System.out.println("lowest Tax: $" + df2.format(lowestTaxValue));
+		System.out.println("Number of employees in group1:" +tax1.grup1);
+		System.out.println("Number of employees in group5:" +tax1.grup5);
+		System.out.println("Tax group number with highest number of employees:" +tax1.highestTaxGroup(tax1.grup1, tax1.grup2, tax1.grup3, tax1.grup4, tax1.grup5));
+
+	}
+
+	public double taxcalculation(double taxValue) {
+		if (taxValue >= 0 && taxValue <= 18200) {
+			grup1++;
+			return 0;
+		} else if (taxValue > 18200 && taxValue <= 37000) {
+
+			taxValue = 0 + ((taxValue - 18200) * 0.19);
+			grup2++;
+			return taxValue;
+		} else if (taxValue > 37000 && taxValue <= 87000) {
+
+			taxValue = 3572 + ((taxValue - 37000) * 0.325);
+			grup3++;
+			return taxValue;
+		} else if (taxValue > 87000 && taxValue <= 180000) {
+
+			taxValue = 19822 + ((taxValue - 87000) * 0.37);
+			grup4++;
+			return taxValue;
+		} else {
+			taxValue = 54097 + ((taxValue - 180000) * 0.45);
+			grup5++;
+			return taxValue;
+		}
+
+	}
+
+	public int highestTaxGroup(int group1, int group2, int group3, int group4,
+			int group5) {
+
+		int max;
+		if (group1 > group2) {
+
+			if (group1 > group3) {
+				if (group1 > group4) {
+					if (group1 > group5) {
+						max = 1;
+					} else {
+						max = 5;
+					}
+
+				} else {
+					if (group4 > group5) {
+						max = 4;
+					} else {
+						max = 5;
+					}
+				}
+			} else {
+
+				if (group3 > group4) {
+					if (group3 > group5) {
+						max = 3;
+					} else {
+						max = 4;
+					}
+
+				} else {
+					if (group4 > group5) {
+						max = 4;
+					} else {
+						max = 5;
+					}
+				}
+
+			}
+
+		} else {
+
+			if (group2 > group3) {
+				if (group2 > group4) {
+					if (group2 > group5) {
+						max = 2;
+					} else {
+						max = 5;
+					}
+
+				} else {
+					if (group4 > group5) {
+						max = 4;
+					} else {
+						max = 5;
+					}
+				}
+			} else {
+
+				if (group3 > group4) {
+					if (group3 > group5) {
+						max = 3;
+					} else {
+						max = 4;
+					}
+
+				} else {
+					if (group4 > group5) {
+						max = 4;
+					} else {
+						max = 5;
+					}
+				}
+
+			}
+
+		}
+		return max;
+	}
+}
