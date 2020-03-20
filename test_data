@@ -1,0 +1,27 @@
+{
+   "adapter":"iMobileUKAdapter",
+   "procedure":"activation",
+   "parameters":[
+      {
+         "OPERATIONID":"IMBUKREG01",
+         "UserID":"951015179",
+         "Password":"l1CnjeJfwnB5kT18r2wO7w==",
+         "XID":"",
+         "GCMKey":"fr64rYicLp0:APA91bHU3BF4t7u0K5GJDJB7Mj_SIUcLo6JR_0oTcNiSibV9M2QFqBUAvdecchFUA2yTGsH71DLXV_9dMkbPjxY2cJse33CoW2YN2dHFI3erAMIbesrZZollLZ2HSbOPSsQtLs7-32Tb",
+         "OTPFlag":"N",
+         "OTPCount":"0",
+         "salt":"516bc7bf774cef8b6ac2b09948395eab",
+         "iv":"afd5c71aa78a3e80ea1d71c47e3ff267",
+         "AUTH":"NqM6ZbFVPb9M6GpSUtk3Bw==",
+         "TokenID":"",
+         "WLDeviceID":"836defc7-fdc4-391d-af2f-aa5a5d24914d",
+         "DeviceOsVersion":"9",
+         "UserAgent":"Android",
+         "DeviceOsType":"Android",
+         "AppVersion":"2.1",
+         "DeviceModel":"G8342",
+         "CustAccounts":false,
+         "CustPayees":false
+      }
+   ]
+}
